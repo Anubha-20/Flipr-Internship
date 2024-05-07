@@ -3,9 +3,10 @@ import { ArrowRight } from 'lucide-react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {  NavLink } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom';
 
 const SignIn=()=> {
+  const navigate=useNavigate()
   const [email, setEmail]=useState('');
   const [password, setPassword]=useState('');
 
@@ -32,6 +33,7 @@ const SignIn=()=> {
       if (result.email) {
         localStorage.setItem("user", JSON.stringify(result));
         toast.success("Logged In successfully!", {
+          onClose:()=>navigate('/products')
         });
       } else {
         toast.error("Invalid Credentials!");

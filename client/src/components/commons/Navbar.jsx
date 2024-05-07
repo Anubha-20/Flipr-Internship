@@ -1,19 +1,19 @@
 'use client'
 import React from 'react'
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react'
-
+import { NavLink } from 'react-router-dom'
 const menuItems = [
   {
     name: 'Home',
-    href: '#',
+    href: '/',
   },
   {
-    name: 'About',
-    href: '#',
+    name: 'Products',
+    href: '/Product',
   },
   {
-    name: 'Contact',
-    href: '#',
+    name: 'Cart',
+    href: 'Cart',
   },
 ]
 
@@ -61,18 +61,23 @@ const Navbar=()=> {
           </ul>
         </div>
         <div className="hidden space-x-2 lg:block">
+        <NavLink to ="/csignin">
           <button
             type="button"
             className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Sign In
           </button>
+          </NavLink>
+
+          <NavLink to ="/csignup">
           <button
             type="button"
             className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
-            Log In
+            SignUp
           </button>
+          </NavLink>
         </div>
         <div className="lg:hidden">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
@@ -129,18 +134,23 @@ const Navbar=()=> {
                   </nav>
                 </div>
                 <div className="mt-2 space-y-2">
+                  
                   <button
                     type="button"
                     className="w-full rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   >
                     Sign In
                   </button>
+                  
+
+                  
                   <button
-                    type="button"
+                    type="submit"
                     className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                   >
-                    Log In
+                    Register
                   </button>
+      
                 </div>
               </div>
             </div>
