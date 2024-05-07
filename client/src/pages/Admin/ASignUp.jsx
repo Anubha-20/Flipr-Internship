@@ -1,8 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 
-
-const SignUp = () => {
+const ASignUp = () => {
 
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -10,7 +9,6 @@ const SignUp = () => {
   const [errors, setErrors] = useState({});
 
   const collectData = async () => {
-    console.log(email,number,password);
     const errors = {};
     if (!email.trim()) {
       errors.email = "Email is required";
@@ -27,10 +25,11 @@ const SignUp = () => {
     } else if (password.length < 6) {
       errors.password = "Password must be at least 6 characters";
     }
+    console.warn( email, number, password);
 
     if (Object.keys(errors).length === 0) {
       console.warn( email, number, password);
-      let result = await fetch('http://localhost:8000/api/auth/csignup', {
+      let result = await fetch('http://localhost:8000/api/auth/signup', {
         method: 'post',
         body: JSON.stringify({ email, number, password }),
         headers: {
@@ -58,7 +57,7 @@ const SignUp = () => {
           <p className="mt-2 text-center text-base text-gray-600">
             Already have an account?{' '}
             <a
-              href="#"
+              href="/signin"
               title=""
               className="font-medium text-black transition-all duration-200 hover:underline"
             >
@@ -67,6 +66,8 @@ const SignUp = () => {
           </p>
           <form action="#" method="POST" className="mt-8">
             <div className="space-y-5">
+              <div>
+              </div>
               <div>
               <div className="flex items-center justify-between">
                 <label htmlFor="email" className="text-base font-medium text-gray-900">
@@ -86,6 +87,7 @@ const SignUp = () => {
                   {errors.email && <p className="text-red-500">{errors.email}</p>}
                 </div>
               </div>
+              
               <div>
               <div className="flex items-center justify-between">
                 <label htmlFor="contact" className="text-base font-medium text-gray-900">
@@ -105,7 +107,7 @@ const SignUp = () => {
                   {errors.number && <p className="text-red-500">{errors.number}</p>}
                 </div>
               </div>
-              <div>
+              <div> 
                 <div className="flex items-center justify-between">
                   <label htmlFor="password" className="text-base font-medium text-gray-900">
                     {' '}
@@ -140,4 +142,4 @@ const SignUp = () => {
     </section>
   );
 };
-export default SignUp;
+export default ASignUp;

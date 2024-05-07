@@ -4,6 +4,7 @@ import { BarChart, Wallet, Newspaper, BellRing, Paperclip, Brush, Wrench } from 
 const Sidebar=()=> {
   return (
     <div>
+    
     <aside className="flex h-screen w-64 flex-col overflow-y-auto border-r bg-black px-5 py-8">
       <a href="#">
         <svg
@@ -83,6 +84,7 @@ const Sidebar=()=> {
         </nav>
       </div>
     </aside>
+    <div className="flex justify-center">
     <div className="flex justify-center items-center h-screen">
     <div className="mx-auto max-w-xl rounded-md bg-black p-1">
       <div className="flex flex-col rounded-md bg-white">
@@ -132,6 +134,10 @@ const Sidebar=()=> {
     </div>
     </div>
     </div>
+    </div>
+  
   )
 }
 export default Sidebar;
+
+
